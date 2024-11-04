@@ -27,7 +27,11 @@ async def list_games():
     try:
         with connection.cursor() as cursor:
             cursor.execute(
-                "SELECT id, nome, genero, plataforma, status FROM games"
+                """
+                SELECT id, nome, genero, plataforma, status 
+                FROM games
+                ORDER BY id ASC
+                """
             )
             rows = cursor.fetchall()
             
